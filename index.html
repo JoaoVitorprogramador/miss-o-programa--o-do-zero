@@ -15,19 +15,48 @@
             <img src="./missao-3.png" alt="foto-principal">
         
             <div id="div-numero">
-                <span class="numeros">00</span>
+                <span class="numeros" id="horas">00</span>
                 <span class="numeros">:</span>
-                <span class="numeros">00</span>
+                <span class="numeros" id="minutos">00</span>
                 <span class="numeros">:</span>
-                <span class="numeros">00</span>
+                <span class="numeros" id="segundos">00</span>
                 <span class="numeros">:</span>
-                <span class="numeros">00</span>
+                <span class="numeros" id="mili">00</span>
             </div>
             <div id="div-botao">
-                <button class="botoes comecar">começar</button>
-                <button class="botoes parar">parar</button>
-                <button class="botoes recomecar">recomeçar</button>
+                <button class="botoes comecar" id="botaocomecar">começar</button>
+                <button class="botoes parar" id="botaoparar">parar</button>
+                <button class="botoes recomecar" id="botaorecomecar">recomeçar</button>
             </div>
     </div>
 </body>
+<script>
+
+    let btnComecar = document.getElementById("botaocomecar")
+    let mili = document.getElementById("mili")
+    let segundos = document.getElementById("segundos")
+    let minutos = document.getElementById("minutos")
+    let horas = document.getElementById("horas")
+
+    let comecartempo 
+    let ms = 0
+    let seg = 0
+    let min = 0 
+    let hr = 0 
+
+
+    function comecar() {
+        comecartempo = setInterval(() => {
+        ms = ms + 1
+        atualizarvalor()
+    }, 1000);
+       
+       }
+
+    function atualizarvalor() { mili.innerHTML = ms }
+
+    btnComecar.addEventListener("click", comecar)
+
+
+</script>
 </html>
