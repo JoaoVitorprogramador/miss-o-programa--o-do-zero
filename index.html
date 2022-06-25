@@ -32,6 +32,8 @@
 </body>
 <script>
 
+    let btnreiniciar = document.getElementById("botaorecomecar")
+    let btnparar = document.getElementById("botaoparar")
     let btnComecar = document.getElementById("botaocomecar")
     let mili = document.getElementById("mili")
     let segundos = document.getElementById("segundos")
@@ -65,6 +67,8 @@
             if(hr < 10){ hr = "0" + hr }
         min = 0 }
 
+        btnComecar.classList.add("ativo")
+        btnparar.classList.remove("ativo")
         atualizarvalor()
     }, 10);
        
@@ -76,8 +80,26 @@
         minutos.innerHTML = min
         horas.innerHTML = hr }
 
-    
+    function parar(){
+        clearInterval(comecartempo)
+        btnparar.classList.add("ativo")
+        btnComecar.classList.remove("ativo")
+    }
+
+    function reiniciar(){
+        clearInterval(comecartempo)
+        ms = "00"
+        seg = "00"
+        min = "00"
+        hr = "00"
+        atualizarvalor()
+        btnComecar.classList.remove("ativo")
+        btnparar.classList.remove("ativo")
+    }
+
     btnComecar.addEventListener("click", comecar)
+    btnparar.addEventListener("click", parar)
+    btnreiniciar.addEventListener("click", reiniciar)
 
 
 </script>

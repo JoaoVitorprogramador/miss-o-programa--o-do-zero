@@ -32,13 +32,17 @@ border: none;
 border-radius: 4px;
 cursor: pointer; }
 
+.parar{ color: #ff0000; }
+
+.recomecar{ color:#000000; }
+
 .parar{ padding-right: 26px;
 padding-left: 26px; }
 
 #mili{ color: #83a400; }
 
 
-
+.ativo{ opacity: 0.6; }
 
 
 
