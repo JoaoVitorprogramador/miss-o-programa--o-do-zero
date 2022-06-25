@@ -41,19 +41,41 @@
     let comecartempo 
     let ms = 0
     let seg = 0
-    let min = 0 
-    let hr = 0 
+    let min = 0
+    let hr = 0
 
 
     function comecar() {
         comecartempo = setInterval(() => {
         ms = ms + 1
+
+
+        if(ms == 100){
+        seg = seg + 1
+        ms = 0 }
+
+        if(seg == 60){
+        min = min + 1
+        seg = 0
+        }
+
+        if(min == 60){
+        hr = hr + 1
+        min = 0
+        }
+
+        
+
         atualizarvalor()
-    }, 1000);
+    }, 10);
        
        }
 
-    function atualizarvalor() { mili.innerHTML = ms }
+    function atualizarvalor() { 
+        mili.innerHTML = ms
+        segundos.innerHTML = seg
+        minutos.innerHTML = min
+        horas.innerHTML = hr }
 
     btnComecar.addEventListener("click", comecar)
 
